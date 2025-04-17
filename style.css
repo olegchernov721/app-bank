@@ -38,6 +38,10 @@ nav {
   display: flex;
 }
 
+.nav__info {
+  font-size: 2rem;
+}
+
 .login__input {
   border: none;
   padding: 0.5rem 2rem;
