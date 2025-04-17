@@ -20,7 +20,7 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 0 2rem;
 }
 
@@ -62,6 +62,7 @@ nav {
 }
 
 .login__btn {
+  width: 12rem;
   padding: 10px;
   border: none;
   border-radius: 0.7rem;
@@ -82,6 +83,7 @@ nav {
 .app {
   position: relative;
   max-width: 100rem;
+  min-height: max-content;
   margin: 4rem auto;
   display: grid;
   grid-template-columns: 5fr 3fr;
@@ -97,6 +99,12 @@ nav {
   display: flex;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.balance div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .balance__label {
@@ -276,11 +284,205 @@ h2 {
 
 .logout-timer {
   padding: 0 0.3rem;
-  margin-top: 1.9rem;
-  text-align: right;
   font-size: 1.25rem;
 }
 
 .timer {
   font-weight: 600;
 }
+
+.login-demo {
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: max-content;
+}
+
+.login-demo__title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.login-demo__list {
+  list-style: none;
+  padding-left: 0;
+  max-width: max-content;
+}
+
+.login-demo__item {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  max-width: max-content;
+}
+
+.login-demo__btn {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #5956E9;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-demo__btn:hover {
+  background-color: #7a79f0;
+}
+
+.current-account, .current-account__item {
+  font-size: 1.8rem;
+}
+
+
+/* ===== АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ===== */
+
+@media (max-width: 1010px) { 
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 981px) { 
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5fr);
+  }
+
+  .operations {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .movements {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    min-height: max-content;
+  }
+
+  .summary {
+    display: none;
+    /* grid-column: 1/2;
+    grid-row: 4/5; */
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* ~9px */
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    gap: 2rem;
+  }
+
+  .balance {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .balance__value {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .summary {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .login {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form.form--loan {
+    grid-template-columns: 1fr;
+  }
+
+  .login-demo__btn {
+    display: block;
+    margin-top: 0.5rem;
+    margin-left: 0;
+  }
+
+
+  .movements__value {
+    margin-left: 0;
+  }
+
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%; /* ~8px */
+  }
+
+  .logo {
+    height: 4rem;
+  }
+
+  .login__input {
+    width: 100%;
+  }
+
+  .login__btn {
+    width: 100%;
+  }
+
+  .form__btn {
+    width: 100%;
+  }
+
+  .login-demo {
+    padding: 1rem;
+  }
+
+  .login-demo__title {
+    font-size: 1.8rem;
+  }
+
+  .login-demo__item {
+    font-size: 1.5rem;
+  }
+
+  .current-account, .current-account__item {
+    font-size: 1.6rem;
+  }
+
+  .operations {
+
+    grid-row: 3/4;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .movements {
+    grid-row: 2/3;
+    min-height: max-content;
+  }
+}
+

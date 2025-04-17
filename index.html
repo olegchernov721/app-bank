@@ -15,23 +15,49 @@
     <nav>
       <img src="logo.png" alt="Logo" class="logo" />
 
-      <form class="login">
-        <p class="welcome">Вход:</p>
-        <input
-          type="text"
-          placeholder="user"
-          class="login__input login__input--user"
-          value="df"
-        />
-        <input
-          type="text"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input login__input--pin"
-          value="1111"
-        />
-        <button class="login__btn">&rarr;</button>
-      </form>
+      <div class="welcome__open">
+        <form class="login">
+          <p class="welcome">Вход:</p>
+          <input
+            type="text"
+            placeholder="user"
+            class="login__input login__input--user"
+            value="user-1"
+          />
+          <input
+            type="text"
+            placeholder="PIN"
+            maxlength="4"
+            class="login__input login__input--pin"
+            value="1111"
+          />
+          <button class="login__btn">&rarr;</button>
+        </form>
+  
+        <div class="login-demo">
+          <h3 class="login-demo__title">Тестовые аккаунты</h3>
+          <ul class="login-demo__list">
+            <li class="login-demo__item">
+              <span class="login-demo__label">Логин:</span> <span class="login-demo__login">user-1</span> /
+              <span class="login-demo__label">Пароль:</span> <span class="login-demo__password">1111</span>
+              <button class="login-demo__btn" data-login="user-1" data-password="1111">Подставить</button>
+            </li>
+            <li class="login-demo__item">
+              <span class="login-demo__label">Логин:</span> <span class="login-demo__login">user-2</span> /
+              <span class="login-demo__label">Пароль:</span> <span class="login-demo__password">2222</span>
+              <button class="login-demo__btn" data-login="user-2" data-password="2222">Подставить</button>
+            </li>
+            <li class="login-demo__item">
+              <span class="login-demo__label">Логин:</span> <span class="login-demo__login">user-3</span> /
+              <span class="login-demo__label">Пароль:</span> <span class="login-demo__password">3333</span>
+              <button class="login-demo__btn" data-login="user-3" data-password="3333">Подставить</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+
+      
     </nav>
 
     <main class="app">
@@ -39,6 +65,10 @@
         <div>
           <p class="balance__label">Текущий баланс</p>
           <p class="balance__date">От <span class="date">05/03/2037</span></p>
+          <p class="current-account">Текущий аккаунт: <span class="current-account__item"></span></p>
+          <p class="logout-timer">
+            Сессия закончится через <span class="timer">05:00</span>
+          </p>
         </div>
         <p class="balance__value">0000₽</p>
       </div>
@@ -70,7 +100,8 @@
         <button class="btn--sort">&downarrow; ФИЛЬТР</button>
       </div>
 
-      <div class="operation operation--transfer">
+      <div class="operations">
+              <div class="operation operation--transfer">
         <h2>Перевод денег</h2>
         <form class="form form--transfer">
           <input type="text" class="form__input form__input--to" />
@@ -104,10 +135,13 @@
           <label class="form__label">PIN</label>
         </form>
       </div>
+      </div>
 
-      <p class="logout-timer">
+
+
+      <!-- <p class="logout-timer">
         Сессия закончится через <span class="timer">05:00</span>
-      </p>
+      </p> -->
     </main>
 
     <script src="js.js"></script>

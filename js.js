@@ -1,7 +1,7 @@
 "use strict";
 
 const account1 = {
-  owner: "Dmitrii Fokeev",
+  owner: "1 Fokeev",
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   pin: 1111,
   movementsDates: [
@@ -19,7 +19,7 @@ const account1 = {
 };
 
 const account2 = {
-  owner: "Anna Filimonova",
+  owner: "2 Filimonova",
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   pin: 2222,
 
@@ -38,7 +38,7 @@ const account2 = {
 };
 
 const account3 = {
-  owner: "Polina Filimonova",
+  owner: "3 Filimonova",
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   pin: 3333,
 
@@ -112,6 +112,22 @@ const inputClosePin = document.querySelector(".form__input--pin");
 
 
 
+function insertData () {
+  const listLoginUl = document.querySelector(".login-demo__list");
+
+  listLoginUl.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const target = e.target;
+
+    if (target.classList.contains("login-demo__btn")) {
+      inputLoginUsername.value = target.dataset.login;
+      inputLoginPin.value = target.dataset.password;
+    }
+  });
+}
+
+insertData();
 
 
 
@@ -192,13 +208,16 @@ function displayMovements(acc, sort = false) {
 // Создание логина из ФИО в объекте
 function createLogIn(accs) {
   accs.forEach(function (acc) {
-    acc.logIn = acc.owner
-      .toLowerCase()
-      .split(" ")
-      .map(function (val) {
-        return val[0];
-      })
-      .join("");
+    const initials  = acc.owner
+      .split(" ")[0];
+
+      // .toLowerCase()
+      // .split(" ")
+      // .map(function (val) {
+      //   return val[0];
+      // })
+      // .join("");
+      acc.logIn = "user-" + initials;
   });
 }
 createLogIn(accounts);
@@ -295,6 +314,9 @@ btnLogin.addEventListener("click", function (e) {
 
   if (currentAccount && currentAccount.pin === Number(inputLoginPin.value)) {
     containerApp.style.opacity = 100;
+
+    const currentAccountText = document.querySelector(".current-account__item");
+    currentAccountText.textContent = inputLoginUsername.value;
 
     inputLoginPin.value = inputLoginUsername.value = "";
     
